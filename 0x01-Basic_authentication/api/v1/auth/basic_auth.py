@@ -2,14 +2,12 @@
 """Basic Authentication
 """
 from api.v1.auth.auth import Auth
-from base64 import b64decode, decode
-from binascii import Error
-import base64
 
 
 class BasicAuth(Auth):
     """Handles basic authentication
     """
+    pass
     def extract_base64_authorization_header(self,
                                             authorization_header: str) -> str:
         """returns the Base64 part of the Authorization header
