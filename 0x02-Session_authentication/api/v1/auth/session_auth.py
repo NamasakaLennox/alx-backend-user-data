@@ -20,3 +20,11 @@ class SessionAuth(Auth):
         self.user_id_by_session_id[ses_id] = user_id
 
         return ses_id
+
+    def user_id_for_session_id(self, session_id: str = None) -> str:
+        """Extracts a user id from the session id
+        """
+        if session_id is None or not isinstance(session_id, str):
+            return None
+
+        return self.user_id_by_session_id.get(session_id)
