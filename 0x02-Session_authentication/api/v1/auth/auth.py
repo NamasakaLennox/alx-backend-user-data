@@ -53,5 +53,5 @@ class Auth:
     def session_cookie(self, request=None):
         """Extracts a cookie value from requests
         """
-        _my_session_id = getenv('SESSION_NAME')
+        _my_session_id = getenv('SESSION_NAME', '_my_session_id')
         return request.cookies.get(_my_session_id)
