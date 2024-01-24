@@ -43,11 +43,6 @@ class Auth:
         except (NoResultFound, InvalidRequestError):
             return False
 
-    def _generate_uuid(self) -> str:
-        """generates a uuid
-        """
-        return str(uuid4())
-
 
 def _hash_password(password: str) -> bytes:
     """generates a hashed password using bcrypt
@@ -56,3 +51,9 @@ def _hash_password(password: str) -> bytes:
 
     salt = gensalt()
     return hashpw(hashed, salt)
+
+
+def _generate_uuid(self) -> str:
+        """generates a uuid
+        """
+        return str(uuid4())
