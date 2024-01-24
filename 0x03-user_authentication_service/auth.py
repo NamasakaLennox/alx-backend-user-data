@@ -6,6 +6,7 @@ from db import DB
 from user import User
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.exc import InvalidRequestError
+from uuid import uuid4
 
 
 class Auth:
@@ -50,3 +51,9 @@ def _hash_password(password: str) -> bytes:
 
     salt = gensalt()
     return hashpw(hashed, salt)
+
+
+def _generate_uuid():
+    """generates a uuid
+    """
+    return str(uuid4())
