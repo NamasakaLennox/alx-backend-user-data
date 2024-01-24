@@ -53,7 +53,7 @@ def _hash_password(password: str) -> bytes:
     return hashpw(hashed, salt)
 
 
-def _generate_uuid(self) -> str:
+def _generate_uuid() -> str:
     """generates a uuid
     """
     return str(uuid4())
