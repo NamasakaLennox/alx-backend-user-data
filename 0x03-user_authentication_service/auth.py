@@ -84,6 +84,17 @@ class Auth:
         except (NoResultFound, InvalidRequestError):
             raise ValueError
 
+    def update_password(self, reset_token: str, password: str) -> None:
+        """Updates a user password given a reset token and the new password
+        """
+        try:
+            user = self._db.find_user_by(reset_token=reset_token)
+            password = _hash_password(password)
+            self._db.update_user(user.id, reset_token=None, password=password)
+
+        except (NoResultFound, InvalidRequestError):
+            raise ValueError
+
 
 def _hash_password(password: str) -> bytes:
     """generates a hashed password using bcrypt
